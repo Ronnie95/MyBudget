@@ -17,9 +17,14 @@ from django.urls import reverse
 # Create your views here.
 
 # Here we will be creating a class called Home and extending it from the View class
+
+@method_decorator(login_required, name='dispatch')
 class Home(TemplateView):
     template_name = "home.html"
 
+
+
+@method_decorator(login_required, name='dispatch')
 class GoalCreate(CreateView):
     model = Goals
     fields = ['goal_name', 'target_amount', 'target_date', 'notes']
@@ -34,13 +39,13 @@ class GoalCreate(CreateView):
         print(self.kwargs)
         return reverse('goal_detail', kwargs={'pk': self.object.pk})
 
-
-class MovieDetail(DetailView):
+@method_decorator(login_required, name='dispatch')
+class GoalDetail(DetailView):
     model = Goals
     template_name = "goal_detail.html"
 
 
-
+@method_decorator(login_required, name='dispatch')
 class GoalList(TemplateView):
     template_name = "goals.html"
 
