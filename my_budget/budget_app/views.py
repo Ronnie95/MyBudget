@@ -1,7 +1,6 @@
-from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View # <- View class to handle requests
 from django.http import HttpResponse # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
@@ -49,3 +48,21 @@ class GoalList(TemplateView):
         context = super().get_context_data(**kwargs)
         context["Goals"] = Goals.objects.all() # Here we are using the model to query the database for us.
         return context
+    
+
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form submit, validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
