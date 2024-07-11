@@ -12,8 +12,10 @@
 </head>
 <body>
     <h1>Financial Goals</h1>
-    <form>
-        <div class="mb-3">
+    <form method="post">
+      {% csrf_token %} 
+
+      <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Goal Name</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>

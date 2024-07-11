@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+</head>
+<body>
+    
+</body>
+</html><h1 class="title">Goal list</h1>
+<div class="gallery">
+
+  <article class="message">
+    <div class="message-header">
+    </div>
+    <div class="detail__songs mb-5">
+        <h3 class="title is-3">Songs</h3>
+    
+        {% for goal in Goals %}
+        <div class="song">
+          <span>{{forloop.counter}}</span>
+          <span><b>{{goal.goal_name}}</b></span>
+          <li>{{goal.target_amount}}</li>
+          <li>{{goal.target_date}}</li>
+          <li>{{goal.notes}}</li>
+        </div> 
+            {% empty %}
+        <article class="message">
+          <div class="message-header">
+          
+          </div>
+        </article>
+    
+        {% endfor %}
+      </div>
+  </article>
+  
+  
+</div>
+{% endblock %}

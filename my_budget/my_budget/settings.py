@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'budget_app/static')]
+# Add this variable to specify where successful logins should redirect to
+LOGIN_REDIRECT_URL = '/'
