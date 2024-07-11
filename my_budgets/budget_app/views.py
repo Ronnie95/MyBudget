@@ -59,15 +59,16 @@ class GoalDetail(DetailView):
     def get_queryset(self):
         return Goals.objects.filter(user=self.request.user)
     
-# @method_decorator(login_required, name='dispatch')
-# class GoalList(TemplateView):
-#     template_name = "goals.html"
+class GoalUpdate(UpdateView):
+    model = Goals
+    fields = ['goal_name', 'target_amount', 'target_date', 'notes']
+    template_name = "goal_update.html"
+    success_url = "/goals/"
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["Goals"] = Goals.objects.all() # Here we are using the model to query the database for us.
-#         return context
-    
+class GoalDelete(DeleteView):
+    model = Goals
+    template_name = "goal_delete.html"
+    success_url = "/goals/"
 
 class Signup(View):
     # show a form to fill out
