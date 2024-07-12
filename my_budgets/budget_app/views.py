@@ -63,12 +63,12 @@ class GoalUpdate(UpdateView):
     model = Goals
     fields = ['goal_name', 'target_amount', 'target_date', 'notes']
     template_name = "goal_update.html"
-    success_url = "/goals/"
+    success_url = "/goal/"
 
 class GoalDelete(DeleteView):
     model = Goals
     template_name = "goal_delete.html"
-    success_url = "/goals/"
+    success_url = "/goal/"
 
 class Signup(View):
     # show a form to fill out

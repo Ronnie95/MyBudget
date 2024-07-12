@@ -28,27 +28,17 @@
           <li>{{goal.target_amount}}</li>
           <li>{{goal.target_date}}</li>
           <li>{{goal.notes}}</li>
-          <button><a href="{% url 'goal_detail' goal.pk %}">Open</a></button>
+          <button><a href="{% url 'goal_detail' goal.pk %}" class="button is-info">Open</a></button>   
+          <button><a href="{% url 'goal_update' goal.pk %}" class="button is-info"> Edit</button>   
+          <button><a href="{% url 'goal_delete' goal.pk %}" class="button is-danger">Delete</button> 
+
+
 
         </div> 
             {% empty %}
-        <article class="message">
-          <div class="message-header">
-          
-          </div>
-        </article>
-
-        <table class="table table-hover">
-            <tr>helssslo</tr>
-          </table>
+        
         {% endfor %}
 
-        <table class="table table-hover">
-            <tr>hello</tr>
-          </table>
-          <table class="table table-striped">
-            <tbody>fffff</tbody>
-          </table>
       </div>
   </article>
   
