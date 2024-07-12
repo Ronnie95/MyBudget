@@ -14,6 +14,11 @@ urlpatterns = [
     path('reminders/<int:pk>/', views.ReminderDetail.as_view(), name='reminder_detail'),
     path('reminders/<int:pk>/update', views.ReminderUpdate.as_view(), name='reminder_update'),
     path('reminders/<int:pk>/delete', views.ReminderDelete.as_view(), name='reminder_delete'),
+    path('transactions/', views.TransactionsList.as_view(), name="transactions"), # <- here we have added the new path
+    path('transactions/new/', views.TransactionsCreate.as_view(), name ='transactions_create'),
+    path('transactions/<int:pk>/', views.TransactionsDetail.as_view(), name='transactions_detail'),
+    path('transactions/<int:pk>/update', views.TransactionsUpdate.as_view(), name='transactions_update'),
+    path('transactions/<int:pk>/delete', views.TransactionsDelete.as_view(), name='transactions_delete'),
     path('accounts/signup/', views.Signup.as_view(), name="signup")
 
 ]
