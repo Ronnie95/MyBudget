@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+</head>
+<body>
+    
+</body>
+</html><h1 class="title">Reminders</h1>
+<div class="gallery">
+
+  <article class="message">
+    <div class="message-header">
+    </div>
+    <div class="detail__songs mb-5">    
+        {% for reminder in Reminders %}
+        <div class="song">
+          <span>{{forloop.counter}}</span>
+            <span><b>{{reminder.name}}</b></span>
+          <li>{{reminder.date}}</li>
+          <li>{{reminder.notes}}</li>
+          <button><a href="{% url 'reminder_detail' reminder.pk %}" class="button is-info">Open</a></button>   
+          <button><a href="{% url 'reminder_update' reminder.pk %}" class="button is-info"> Edit</button>   
+          <button><a href="{% url 'reminder_delete' reminder.pk %}" class="button is-danger">Delete</button> 
+
+
+
+        </div> 
+            {% empty %}
+        
+        {% endfor %}
+
+      </div>
+  </article>
+  
+  
+</div>
+{% endblock %}

@@ -91,7 +91,7 @@ class Signup(View):
 class ReminderCreate(CreateView):
     model = Reminders
     fields = ['name', 'date', 'notes']
-    template_name = "reminders_create.html"
+    template_name = "reminder_create.html"
     success_url = "/reminders/"
 
     def form_valid(self, form):
@@ -108,7 +108,7 @@ class ReminderList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["reminders"] = Reminders.objects.all() # Here we are using the model to query the database for us.
+        context["Reminders"] = Reminders.objects.all() # Here we are using the model to query the database for us.
         return context
     
 
@@ -120,13 +120,13 @@ class ReminderDetail(DetailView):
     def get_queryset(self):
         return Reminders.objects.filter(user=self.request.user)
     
-class GoalUpdate(UpdateView):
+class ReminderUpdate(UpdateView):
     model = Reminders
     fields = ['name', 'date','notes']
     template_name = "reminder_update.html"
     success_url = "/reminders/"
 
-class GoalDelete(DeleteView):
+class ReminderDelete(DeleteView):
     model = Reminders
     template_name = "reminder_delete.html"
     success_url = "/reminders/"
