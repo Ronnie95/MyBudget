@@ -15,20 +15,20 @@ class Transactions(models.Model):
     amount = models.IntegerField()
     date = models.DateField()
     description = models.CharField(max_length=500)
-    category_Choices = {
-        "Groceries": "Groceries",
-        "Food": "Food",
-        "Entertainment": "Entertainment",
-        "Gas": "Gas",
-        "Housing": "Housing",
-        "Transportation": "Transportation",
-        "Health": "Health",
-        "Debt": "Debt",
-        "Education": "Education",
-        "Savings": "Savings",
-        "Investments": "Investments",
-        "Misc": "Misc"
-    }
+    category_Choices = (
+        ("Groceries", "Groceries"),
+        ("Food", "Food"),
+        ("Entertainment", "Entertainment"),
+        ("Gas", "Gas"),
+        ("Housing", "Housing"),
+        ("Transportation", "Transportation"),
+        ("Health", "Health"),
+        ("Debt", "Debt"),
+        ("Education", "Education"),
+        ("Savings", "Savings"),
+        ("Investments", "Investments"),
+    )
+    category = models.CharField(max_length=20, choices=category_Choices, default="food")  # Added default value
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
 

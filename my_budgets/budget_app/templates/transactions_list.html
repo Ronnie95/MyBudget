@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+</head>
+<body>
+    
+</body>
+</html><h1 class="title">Transactions</h1>
+<div class="gallery">
+
+  <article class="message">
+    <div class="message-header">
+    </div>
+    <div class="detail__songs mb-5">    
+        {% for transaction in Transactions %}
+        <div class="song">
+          <span>{{forloop.counter}}</span>
+            <span><b>{{transaction.Amount}}</b></span>
+          <li>{{transaction.date}}</li>
+          <li>{{transaction.description}}</li>
+          <li>{{transaction.category}}</li>
+
+       
+
+        </div> 
+            {% empty %}
+        
+        {% endfor %}
+
+      </div>
+  </article>
+  
+  
+</div>
+{% endblock %}

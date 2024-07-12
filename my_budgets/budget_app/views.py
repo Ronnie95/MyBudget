@@ -134,7 +134,7 @@ class ReminderDelete(DeleteView):
 @method_decorator(login_required, name='dispatch')
 class TransactionsCreate(CreateView):
     model = Transactions
-    fields = ['amount', 'date', 'description', 'category_choices']
+    fields = ['amount', 'date', 'description', 'category']
     template_name = "transactions_create.html"
     success_url = "/transactions/"
 
@@ -148,7 +148,7 @@ class TransactionsCreate(CreateView):
 
 @method_decorator(login_required, name='dispatch')
 class TransactionsList(TemplateView):
-    template_name = "transaction_list.html"
+    template_name = "transactions_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
