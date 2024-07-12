@@ -130,3 +130,47 @@ class ReminderDelete(DeleteView):
     model = Reminders
     template_name = "reminder_delete.html"
     success_url = "/reminders/"
+
+@method_decorator(login_required, name='dispatch')
+class TransactionsCreate(CreateView):
+    model = Transactions
+    fields = ['amount', 'date', 'description', 'category_choices']
+    template_name = "transactions_create.html"
+    success_url = "/transactions/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TransactionsCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('transactions_detail', kwargs={'pk': self.object.pk})
+
+@method_decorator(login_required, name='dispatch')
+class TransactionsList(TemplateView):
+    template_name = "transaction_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Transactions"] = Transactions.objects.all() # Here we are using the model to query the database for us.
+        return context
+    
+
+@method_decorator(login_required, name='dispatch')
+class TransactionsDetail(DetailView):
+    model = Transactions
+    template_name = "transactions_detail.html"
+    
+    def get_queryset(self):
+        return Transactions.objects.filter(user=self.request.user)
+    
+class TransactionsUpdate(UpdateView):
+    model = Transactions
+    fields = ['amount', 'date', 'description', 'category_choices']
+    template_name = "transactions_update.html"
+    success_url = "/transactions/"
+
+class TransactionsDelete(DeleteView):
+    model = Transactions
+    template_name = "reminder_delete.html"
+    success_url = "/transactions/"
