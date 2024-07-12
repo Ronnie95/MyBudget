@@ -86,3 +86,47 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+@method_decorator(login_required, name='dispatch')
+class ReminderCreate(CreateView):
+    model = Reminders
+    fields = ['name', 'date', 'notes']
+    template_name = "reminders_create.html"
+    success_url = "/reminders/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ReminderCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('reminder_detail', kwargs={'pk': self.object.pk})
+
+@method_decorator(login_required, name='dispatch')
+class ReminderList(TemplateView):
+    template_name = "reminder_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["reminders"] = Reminders.objects.all() # Here we are using the model to query the database for us.
+        return context
+    
+
+@method_decorator(login_required, name='dispatch')
+class ReminderDetail(DetailView):
+    model = Reminders
+    template_name = "reminder_detail.html"
+    
+    def get_queryset(self):
+        return Reminders.objects.filter(user=self.request.user)
+    
+class GoalUpdate(UpdateView):
+    model = Reminders
+    fields = ['name', 'date','notes']
+    template_name = "reminder_update.html"
+    success_url = "/reminders/"
+
+class GoalDelete(DeleteView):
+    model = Reminders
+    template_name = "reminder_delete.html"
+    success_url = "/reminders/"
