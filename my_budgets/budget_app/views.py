@@ -174,3 +174,48 @@ class TransactionsDelete(DeleteView):
     model = Transactions
     template_name = "reminder_delete.html"
     success_url = "/transactions/"
+
+
+@method_decorator(login_required, name='dispatch')
+class IncomeCreate(CreateView):
+    model = Income
+    fields = ['amount', 'description']
+    template_name = "income_create.html"
+    success_url = "/income/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(IncomeCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('income_detail', kwargs={'pk': self.object.pk})
+
+@method_decorator(login_required, name='dispatch')
+class IncomeList(TemplateView):
+    template_name = "income_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Income"] = Income.objects.all() # Here we are using the model to query the database for us.
+        return context
+    
+
+@method_decorator(login_required, name='dispatch')
+class IncomeDetail(DetailView):
+    model = Income
+    template_name = "income_detail.html"
+    
+    def get_queryset(self):
+        return Income.objects.filter(user=self.request.user)
+    
+class IncomeUpdate(UpdateView):
+    model = Income
+    fields = ['amount','description']
+    template_name = "income_update.html"
+    success_url = "/income/"
+
+class IncomeDelete(DeleteView):
+    model = Income
+    template_name = "income_delete.html"
+    success_url = "/income/"
