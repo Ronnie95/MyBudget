@@ -25,5 +25,4 @@ urlpatterns = [
     path('income/<int:pk>/update', views.IncomeUpdate.as_view(), name='income_update'),
     path('income/<int:pk>/delete', views.IncomeDelete.as_view(), name='income_delete'),
     path('accounts/signup/', views.Signup.as_view(), name="signup")
-
 ]
