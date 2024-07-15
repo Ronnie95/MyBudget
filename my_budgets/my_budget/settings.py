@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     'budget_app',
     'bootstrap5',
     'crispy_forms',
+    # 'crispy_bootstrap4',
 ]
 
-CRISPY_TEMPLATE_PACK = 'uni_form'  # or 'bootstrap5', 'uni_form', 'foundation-5', etc.
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+# CRISPY_TEMPLATE_PACK = 'bootsrap4'
 
 
 MIDDLEWARE = [
@@ -76,6 +78,11 @@ TEMPLATES = [
         },
     },
 ]
+
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+# CRISPY_TEMPLATE_PACK = 'bootsrap4'
+
+
 
 WSGI_APPLICATION = 'my_budget.wsgi.application'
 
@@ -136,3 +143,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'budget_app/static')]
 # Add this variable to specify where successful logins should redirect to
 LOGIN_REDIRECT_URL = '/'
+
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = 'bootsrap4'

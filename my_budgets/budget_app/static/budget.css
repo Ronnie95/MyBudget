@@ -1,0 +1,19 @@
+h1 {
+    color:black;
+    align-items: center;
+
+}
+
+body {
+    color: black
+}
+
+.mb-3 {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+  }

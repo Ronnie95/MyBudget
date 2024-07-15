@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django.urls import reverse
-from .forms import TransactionsForm
+from .forms import TransactionsForm, TransaForm
 
 
 
@@ -136,18 +136,29 @@ class ReminderDelete(DeleteView):
 @method_decorator(login_required, name='dispatch')
 class TransactionsCreate(CreateView):
     model = Transactions
-    form_class = TransactionsForm
+    form_class = TransaForm
     # fields = ['amount', 'date', 'description', 'category']
     template_name = "transactions_create.html"
     success_url = "/transactions/"
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(TransactionsCreate, self).form_valid(form)
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super(TransactionsCreate, self).form_valid(form)
 
-    def get_success_url(self):
-        print(self.kwargs)
-        return reverse('transactions_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     print(self.kwargs)
+    #     return reverse('transactions_detail', kwargs={'pk': self.object.pk})
+# class TransactionsCreate(CreateView):
+#     model = Transactions
+#     form_class = TransactionsForm
+#     template_name = "transactions_create.html"
+
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super().form_valid(form)
+
+#     def get_success_url(self):
+#         return reverse('transactions_detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class TransactionsList(TemplateView):
