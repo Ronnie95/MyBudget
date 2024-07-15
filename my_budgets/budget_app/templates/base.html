@@ -10,63 +10,39 @@
 </head>
 <body>
     {% if user.is_authenticated %}
-    <div class="navbar-menu navbar-start">
-        <span class="navbar-item">Welcome: {{user.username}}</span>
-     
-        <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
 
-        <a class="navbar-item" href="{% url 'goals' %}">Goals</a>
-
-        <a class="navbar-item" href="{% url 'reminders' %}">Reminders</a>
-
-        <a class="navbar-item" href="{% url 'transactions' %}">Transactions</a>
-
-
-
-
-    </div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Welcome: {{user.username}}</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Income
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'income_list' %}">View</a></li>
-                  <li><a class="dropdown-item" href="{% url 'income_create' %}">Create</a></li>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Welcome: {{user.username}}</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                      </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'goals' %}">Goals</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'reminders' %}">Reminders</a>
+                  </li>
                   
+                  <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'transactions' %}">Transactions</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'income_list' %}">Income</a>
+                  </li>
                 </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Goals
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'goals' %}">View</a></li>
-                  <li><a class="dropdown-item" href="{% url 'goal_create' %}">Create</a></li>
-                  
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Reminders
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'reminders' %}">View</a></li>
-                  <li><a class="dropdown-item" href="{% url 'reminder_create' %}">Create</a></li>
-                  
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+              </div>
+            </div>
+          </nav>
+
+
+
+
 {% else %}
     <div class="navbar-menu navbar-end">
        <a class="navbar-item" href="{% url 'login' %}">Log In</a>
