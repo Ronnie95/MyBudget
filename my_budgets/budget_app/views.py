@@ -136,18 +136,18 @@ class ReminderDelete(DeleteView):
 @method_decorator(login_required, name='dispatch')
 class TransactionsCreate(CreateView):
     model = Transactions
-    form_class = TransaForm
-    # fields = ['amount', 'date', 'description', 'category']
+    # form_class = TransaForm
+    fields = ['amount', 'date', 'description', 'category']
     template_name = "transactions_create.html"
     success_url = "/transactions/"
 
-    # def form_valid(self, form):
-    #     form.instance.user = self.request.user
-    #     return super(TransactionsCreate, self).form_valid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TransactionsCreate, self).form_valid(form)
 
-    # def get_success_url(self):
-    #     print(self.kwargs)
-    #     return reverse('transactions_detail', kwargs={'pk': self.object.pk})
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('transactions_detail', kwargs={'pk': self.object.pk})
 # class TransactionsCreate(CreateView):
 #     model = Transactions
 #     form_class = TransactionsForm
