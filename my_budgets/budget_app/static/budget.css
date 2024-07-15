@@ -17,3 +17,25 @@ input[type=text] {
     border: 2px solid red;
     border-radius: 4px;
   }
+
+.collapsenavbar-collapse {
+    background-color: aqua ;
+}
+
+.navbar-brand {
+    color: black;
+    background-color: aqua;
+}
+
+.navbar-expand-lgbg-body-tertiary {
+    background-color: aqua;
+
+}
+
+nav {
+    background-color: black;
+}
+.navbar.navbar-default {
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
