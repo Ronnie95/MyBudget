@@ -42,8 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'budget_app',
-    'bootstrap5'
+    'bootstrap5',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'  # or 'bootstrap5', 'uni_form', 'foundation-5', etc.
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
