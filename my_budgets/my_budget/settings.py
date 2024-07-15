@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'  # or 'bootstrap5', 'uni_form', 'foundation-5', etc.
+CRISPY_TEMPLATE_PACK = 'uni_form'  # or 'bootstrap5', 'uni_form', 'foundation-5', etc.
 
 
 MIDDLEWARE = [
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'my_budget.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Adjust as necessary
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

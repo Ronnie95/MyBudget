@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django.urls import reverse
+from .forms import TransactionsForm
+
 
 
 # Create your views here.
@@ -134,7 +136,8 @@ class ReminderDelete(DeleteView):
 @method_decorator(login_required, name='dispatch')
 class TransactionsCreate(CreateView):
     model = Transactions
-    fields = ['amount', 'date', 'description', 'category']
+    form_class = TransactionsForm
+    # fields = ['amount', 'date', 'description', 'category']
     template_name = "transactions_create.html"
     success_url = "/transactions/"
 
