@@ -19,10 +19,10 @@ urlpatterns = [
     path('transactions/<int:pk>/', views.TransactionsDetail.as_view(), name='transactions_detail'),
     path('transactions/<int:pk>/update', views.TransactionsUpdate.as_view(), name='transactions_update'),
     path('transactions/<int:pk>/delete', views.TransactionsDelete.as_view(), name='transactions_delete'),
-    path('income/', views.IncomeList.as_view(), name="income"), # <- here we have added the new path
-    path('income/new/', views.IncomeCreate.as_view(), name ='income_create'),
-    path('income/<int:pk>/', views.IncomeDetail.as_view(), name='income_detail'),
-    path('income/<int:pk>/update', views.IncomeUpdate.as_view(), name='income_update'),
-    path('income/<int:pk>/delete', views.IncomeDelete.as_view(), name='income_delete'),
+    path('incomes/', views.IncomeList.as_view(), name="income_list"), # <- here we have added the new path
+    path('incomes/new/', views.IncomeCreate.as_view(), name ='income_create'),
+    path('incomes/<int:pk>/', views.IncomeDetail.as_view(), name='income_detail'),
+    path('incomes/<int:pk>/update/', views.IncomeUpdate.as_view(), name='income_update'),
+    path('incomes/<int:pk>/delete', views.IncomeDelete.as_view(), name='income_delete'),
     path('accounts/signup/', views.Signup.as_view(), name="signup")
 ]

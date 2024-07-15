@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+</head>
+<body>
+    
+</body>
+</html><h1 class="title">Goal list</h1>
+<div class="gallery">
+
+  <article class="message">
+    <div class="message-header">
+    </div>
+    <div class="detail__songs mb-5">    
+        {% for income in Incomes %}
+        <div class="song">
+          <span>{{forloop.counter}}</span>
+            <span><b>{{income.amout}}</b></span>
+          <li>{{income.description}}</li>
+       
+          <button><a href="{% url 'income_detail' income.pk %}" class="button is-info">Open</a></button>   
+          <button><a href="{% url 'income_update' income.pk %}" class="button is-info"> Edit</button>   
+
+
+
+        </div> 
+            {% empty %}
+        
+        {% endfor %}
+
+      </div>
+  </article>
+  
+  
+</div>
+{% endblock %}
