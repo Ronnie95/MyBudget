@@ -180,7 +180,7 @@ class TransactionDetail(DetailView):
     
 class TransactionUpdate(UpdateView):
     model = Transactions
-    fields = ['amount', 'date', 'description', 'category_choices']
+    fields = ['amount', 'date', 'description', 'category']
     template_name = "transactions_update.html"
     success_url = "/transactions/"
 
