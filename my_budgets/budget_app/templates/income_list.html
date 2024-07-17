@@ -3,44 +3,24 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie List</title>
-</head>
-<body>
-    
-</body>
-</html><h1 class="title">Goal list</h1>
-<div class="gallery">
 
-  <article class="message">
-    <div class="message-header">
-    </div>
+</html><h1 class="title">Income</h1>
+  <div class="message-header"></div>
+  <a href="{% url 'income_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
     <div class="detail__songs mb-5">    
-        {% for income in Incomes %}
-        <div class="song">
-          <span>{{forloop.counter}}</span>
-            <span><b>{{income.amout}}</b></span>
-          <li>{{income.description}}</li>
-       
-          <button><a href="{% url 'income_detail' income.pk %}" class="button is-info">Open</a></button>   
-          <button><a href="{% url 'income_update' income.pk %}" class="button is-info"> Edit</button>   
-            <button><a href="{% url 'income_delete' income.pk %}" class="button is-info"> delete</button>   
-
-
-
-        </div> 
-            {% empty %}
+      {% for income in Incomes %}
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{income.amount}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{goal.target_date}}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${{goal.target_amount}}</h6>
+                <p class="card-text">{{income.description}}</p>
+                <a href="{% url 'income_detail' income.pk %}" class="card-link">View Goal</a>
+                <a href="{% url 'income_update' income.pk %}" class="card-link">Edit</a>
+                <a href="{% url 'income_delete' income.pk %}" class="card-link">Delete</a>
+              </div>
+            </div>
+          {% empty %}
         
-        {% endfor %}
-
-      </div>
-  </article>
-  
-  
-</div>
+      {% endfor %}
 {% endblock %}

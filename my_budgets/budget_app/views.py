@@ -195,7 +195,7 @@ class IncomeCreate(CreateView):
     model = Income
     fields = ['amount', 'description']
     template_name = "income_create.html"
-    success_url = "/incomes/"
+    success_url = "/income/"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -214,8 +214,7 @@ class IncomeList(TemplateView):
         context["Incomes"] = Income.objects.all() # Here we are using the model to query the database for us.
         return context
     
-    def get_queryset(self):
-        return Income.objects.filter(user=self.request.user)
+
 
 @method_decorator(login_required, name='dispatch')
 class IncomeDetail(DetailView):
