@@ -17,28 +17,32 @@
 </html><h1 class="title">Transactions</h1>
 <div class="gallery">
 
-  <article class="message">
-    <div class="message-header">
-    </div>
-    <div class="detail__songs mb-5">    
+    
         {% for transaction in Transactions %}
-        <div class="song">
-          <span>{{forloop.counter}}</span>
-            <span><b>{{transaction.Amount}}</b></span>
-          <li>{{transaction.date}}</li>
-          <li>{{transaction.description}}</li>
-          <li>{{transaction.category}}</li>
-
-       
-
-        </div> 
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{transaction.category}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{transaction.date}}</h6>
+            <p class="card-text">{{transaction.description}}</p>
+            <a href="#" class="card-link">View</a>
+            <a href="#" class="card-link">Edit</a>
+            <a href="{% url 'goals' %}" class="card-link">Delete</a>
+          </div>
+        </div>
             {% empty %}
         
         {% endfor %}
 
       </div>
-  </article>
   
-  
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{transaction.description}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
 </div>
 {% endblock %}
