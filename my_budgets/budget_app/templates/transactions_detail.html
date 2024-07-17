@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Goal Detail</h1>
+    <h2>{{ t.t_name }}</h2>
+    <p>Target Amount: {{ t.category }}</p>
+    <p>Target Date: {{ t.date }}</p>
+    <p>Notes: {{ t.description }}</p>
+{% endblock %}

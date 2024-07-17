@@ -134,7 +134,7 @@ class ReminderDelete(DeleteView):
     success_url = "/reminders/"
 
 @method_decorator(login_required, name='dispatch')
-class TransactionsCreate(CreateView):
+class TransactionCreate(CreateView):
     model = Transactions
     # form_class = TransaForm
     fields = ['amount', 'date', 'description', 'category']
@@ -143,7 +143,7 @@ class TransactionsCreate(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(TransactionsCreate, self).form_valid(form)
+        return super(TransactionCreate, self).form_valid(form)
 
     def get_success_url(self):
         print(self.kwargs)
@@ -161,7 +161,7 @@ class TransactionsCreate(CreateView):
 #         return reverse('transactions_detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
-class TransactionsList(TemplateView):
+class TransactionList(TemplateView):
     template_name = "transactions_list.html"
 
     def get_context_data(self, **kwargs):
@@ -171,20 +171,20 @@ class TransactionsList(TemplateView):
     
 
 @method_decorator(login_required, name='dispatch')
-class TransactionsDetail(DetailView):
+class TransactionDetail(DetailView):
     model = Transactions
     template_name = "transactions_detail.html"
     
     def get_queryset(self):
         return Transactions.objects.filter(user=self.request.user)
     
-class TransactionsUpdate(UpdateView):
+class TransactionUpdate(UpdateView):
     model = Transactions
     fields = ['amount', 'date', 'description', 'category_choices']
     template_name = "transactions_update.html"
     success_url = "/transactions/"
 
-class TransactionsDelete(DeleteView):
+class TransactionDelete(DeleteView):
     model = Transactions
     template_name = "reminder_delete.html"
     success_url = "/transactions/"

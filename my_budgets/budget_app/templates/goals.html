@@ -5,11 +5,10 @@
 {% bootstrap_javascript %}
 
 </html><h1 class="title">Goal list</h1>
-
   <div class="message-header"></div>
+  <a href="{% url 'goal_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
     <div class="detail__songs mb-5">    
       {% for goal in Goals %}
-        <a href="{% url 'goal_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
           <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{goal.goal_name}}</h5>
