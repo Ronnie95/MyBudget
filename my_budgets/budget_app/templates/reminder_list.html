@@ -16,9 +16,9 @@
                 <h5 class="card-title">{{reminder.name}}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{reminder.date}}</h6>
                 <p class="card-text">{{reminder.notes}}</p>
-                <a href="{% url 'reminder_detail' reminder.pk %}" class="card-link">View reminder</a>
-                <a href="{% url 'reminder_update' reminder.pk %}" class="card-link">Edit</a>
-                <a href="{% url 'reminder_delete' reminder.pk %}" class="card-link">Delete</a>
+                <a href="{% url 'reminder_detail' reminder.pk %}" class="btn btn-secondary btn-sm">View reminder</a>
+                <a href="{% url 'reminder_update' reminder.pk %}" class="btn btn-secondary btn-sm">Edit</a>
+                <a href="{% url 'reminder_delete' reminder.pk %}" class="btn btn-secondary btn-sm">Delete</a>
               </div>
             </div>
           {% empty %}
