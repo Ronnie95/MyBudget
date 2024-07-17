@@ -3,28 +3,15 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie List</title>
-</head>
-<body>
-    
-</body>
-</html><h1 class="title">Goal list</h1>
-<div class="gallery">
 
-  <article class="message">
-    <div class="message-header">
-    </div>
+</html><h1 class="title">Goal list</h1>
+
+  <div class="message-header"></div>
     <div class="detail__songs mb-5">    
-        {% for goal in Goals %}
+      {% for goal in Goals %}
         <a href="{% url 'goal_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
                 <h5 class="card-title">{{goal.goal_name}}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{goal.target_date}}</h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">${{goal.target_amount}}</h6>
@@ -34,11 +21,7 @@
                 <a href="{% url 'goal_delete' goal.pk %}" class="card-link">Delete</a>
               </div>
             </div>
-            {% empty %}
+          {% empty %}
         
-        {% endfor %}
-
-
-  
-
+      {% endfor %}
 {% endblock %}

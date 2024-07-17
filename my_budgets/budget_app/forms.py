@@ -27,3 +27,15 @@ class TransaForm(forms.ModelForm):
         'description': forms.TextInput(attrs={'class': 'form-control'}),
         'category': forms.Select(attrs={'class': 'form-control'})
     }
+
+class GoalForm(forms.ModelForm):
+    class Meta:
+        model = Goals
+        fields = ('goal_name', 'target_amount', 'target_date', 'notes')
+
+    widgets = {
+        'goal_name': forms.TextInput(attrs={'class': 'form-control'}),
+        'target_amount': forms.NumberInput(attrs={'class': 'form-control'}),
+        'target_date': forms.DateInput(attrs={'class': 'form-control'}),
+        'notes': forms.TextInput(attrs={'class': 'form-control'})
+    }

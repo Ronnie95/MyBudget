@@ -1,43 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <title>{% block title %}{% endblock %}</title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-    <h1>Financial Goals</h1>
-    <form method="post">
-      {% csrf_token %} 
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'budget.css' %}">
 
-      <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Goal Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Amount $</label>
-          <input type="text" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Date </label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Note</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          {{form.as_p}} 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      {% block content %}
-  {% endblock %}
-</body>
-</html>
+
+<div class="mb-3">
+
+    <h1>Create Goal</h1>
+    <br/><br/>
+    <form method="post">
+
+    <div class="mb-3">
+        {% csrf_token %}
+        {{ form.as_p }} 
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </div>
+{% endblock %}
 
 <!-- input type may have to be integer/date to work -->
 <!-- date picker? -->
