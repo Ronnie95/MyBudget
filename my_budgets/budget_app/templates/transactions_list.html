@@ -4,13 +4,13 @@
 {% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-<link rel="stylesheet" href="{% static 'budget.css' %}">
+<link rel="stylesheet" href="{% static 'transaction.css' %}">
 
 
 </html><h1 class="title">Transactions</h1>
   <div class="message-header"></div>
   <a href="{% url 'transactions_create' %}" class="btn btn-secondary btn-lg">New Transaction</a>
-    <div class="detail__songs mb-5">    
+    <div class="con">    
       {% for transaction in Transactions %}
           <div class="card" style="width: 18rem;">
             <div class="card-body">

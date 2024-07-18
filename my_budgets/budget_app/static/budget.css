@@ -1,5 +1,5 @@
 h1 {
-    color:black;
+    color:green;
     align-items: center;
 
 }
@@ -15,63 +15,3 @@ input[type=text] {
     border-radius: 4px;
   }
 
-
-
-.card-body {
-    display: flex;
-
-}
-
-.con {
-    display: flex;
-
-}
-
-/* Styling the card */
-.card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-/* Card body styling */
-.card-body {
-    padding: 16px;
-}
-
-/* Card title styling */
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Card subtitle styling */
-.card-subtitle {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-bottom: 8px;
-}
-
-/* Card text styling */
-.card-text {
-    font-size: 1rem;
-    margin-bottom: 12px;
-}
-
-/* Button styling */
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: white;
-    margin-right: 8px;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-}
-
-.con{
-    display: flex;
-}

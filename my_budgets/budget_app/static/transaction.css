@@ -1,0 +1,25 @@
+h1 {
+    color: red;
+}
+
+.card-body {
+    display: block;
+}
+
+.con {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    color: black;
+}
+
+.card-body {
+    background-color: lightslategray;
+    border-color: black;
+}
+body {
+    background-color: black;
+}
