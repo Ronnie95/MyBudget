@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load bootstrap5 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'reminders.css' %}">
 
 
 </html><h1 class="title">Reminders</h1>
@@ -10,7 +12,7 @@
   <div class="message-header"></div>
     <div class="detail__songs mb-5"> 
         <a href="{% url 'reminder_create' %}" class="btn btn-secondary btn-lg">New Reminder</a>
-   
+        <container class="con">
       {% for reminder in Reminders %}
           <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -25,4 +27,6 @@
           {% empty %}
         
       {% endfor %}
+    </container>
+
 {% endblock %}

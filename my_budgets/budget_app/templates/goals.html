@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load bootstrap5 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'goal.css' %}">
 
 <h1 class="title">Goal list</h1>
   <div class="message-header"></div>
   <a href="{% url 'goal_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
-      {% for goal in Goals %}
-        <container class="con">
+  <container class="con">
+    {% for goal in Goals %}
           <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{goal.goal_name}}</h5>
@@ -20,8 +22,7 @@
                 <a href="{% url 'goal_delete' goal.pk %}" class="btn btn-secondary btn-sm">Delete</a>
               </div>
             </div>
-          </container>
           {% empty %}
-        
       {% endfor %}
+  </container>
 {% endblock %}
