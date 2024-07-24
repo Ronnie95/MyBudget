@@ -1,5 +1,7 @@
 h1 {
-    color: blue;
+    color: red;
+    font-family: 'Ubuntu', sans-serif;
+
 }
 
 .card-body {
@@ -30,5 +32,5 @@ th {
 }
 
 a.ajak {
-    background-color: aquamarine;
+    background-color: red;
 }

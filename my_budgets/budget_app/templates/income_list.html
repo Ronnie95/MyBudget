@@ -4,11 +4,14 @@
 {% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'income.css' %}">
 
 </html><h1 class="title">Income</h1>
   <div class="message-header"></div>
   <a href="{% url 'income_create' %}" class="btn btn-secondary btn-lg">New Goal</a>
-    <div class="detail__songs mb-5">    
+    <div class="detail__songs mb-5"> 
+      <container class="con">   
       {% for income in Incomes %}
           <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -22,6 +25,6 @@
               </div>
             </div>
           {% empty %}
-        
       {% endfor %}
+    </container>
 {% endblock %}
