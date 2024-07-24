@@ -10,8 +10,8 @@
 </html><h1 class="title">Transactions</h1>
   <div class="message-header"></div>
   <a href="{% url 'transactions_create' %}" class="btn btn-secondary btn-lg">New Transaction</a>
-     
-      {% for transaction in Transactions %}
+
+      <div class="con">
               <table>
                 <tr>
                   <th>Category</th>
@@ -22,6 +22,8 @@
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
+                {% for transaction in Transactions %}
+
                 <tr>
                   <td>{{transaction.category}}</td>
                   <td>{{transaction.date}}</td>
@@ -30,8 +32,10 @@
                   <td><a href="{% url 'transactions_detail' transaction.pk %}" class="btn btn-secondary btn-sm">View </a></td>
                   <td><a href="{% url 'transactions_update' transaction.pk %}" class="btn btn-secondary btn-sm">Edit</a></td>
                   <td><a href="{% url 'transactions_delete' transaction.pk %}" class="btn btn-secondary btn-sm">Delete</a></td>
-              </table>
-    
+                </tr>
+             
           {% empty %}
       {% endfor %}
+    </table>
+  </div>
 {% endblock %}
