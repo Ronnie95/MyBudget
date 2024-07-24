@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +11,35 @@
         <title>home</title>
     </head>
     <body>
-        <h1> Home</h1>
+        <h1> Welcome to My Budget</h1>
+        <h3>Please choose your path below:</h3>
+        <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Goals</h5>
+              <p class="card-text">Track your goals here</p>
+              <a href="#" class="btn btn-primary">Enter</a>
+            </div>
+          </div>
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Transactions</h5>
+              <p class="card-text">Log your everyday transactions </p>
+              <a href="#" class="btn btn-primary">Enter</a>
+            </div>
+          </div>
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Income</h5>
+              <p class="card-text">Best place to track your income</p>
+              <a href="#" class="btn btn-primary">Enter</a>
+            </div>
+          </div>
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Reminders</h5>
+              <p class="card-text">Never be late on a payment again!</p>
+              <a href="#" class="btn btn-primary">Enter</a>
+            </div>
+          </div>
     </body>
 </html>
-{% endblock %}
