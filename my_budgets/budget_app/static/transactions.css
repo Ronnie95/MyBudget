@@ -1,0 +1,21 @@
+h1 {
+    color: blue;
+}
+
+.card-body {
+    display: block;
+}
+
+
+
+
+ table, th, td {
+    border: 1px solid;
+    width: 50%;
+  }
+  
+  td, th {
+    text-align: center;
+    padding: 10px;
+
+  }

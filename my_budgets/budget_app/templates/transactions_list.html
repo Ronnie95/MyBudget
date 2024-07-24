@@ -4,26 +4,34 @@
 {% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-<link rel="stylesheet" href="{% static 'transaction.css' %}">
+<link rel="stylesheet" href="{% static 'transactions.css' %}">
 
 
 </html><h1 class="title">Transactions</h1>
   <div class="message-header"></div>
   <a href="{% url 'transactions_create' %}" class="btn btn-secondary btn-lg">New Transaction</a>
-    <div class="con">    
+     
       {% for transaction in Transactions %}
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{transaction.category}}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{t.date}}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">${{t.amount}}</h6>
-                <p class="card-text">{{transaction.description}}</p>
-                <a href="{% url 'transactions_detail' transaction.pk %}" class="btn btn-secondary btn-sm">View Transaction</a>
-                <a href="{% url 'transactions_update' transaction.pk %}" class="btn btn-secondary btn-sm">Edit</a>
-                <a href="{% url 'transactions_delete' transaction.pk %}" class="btn btn-secondary btn-sm">Delete</a>
-              </div>
-            </div>
+              <table>
+                <tr>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Description</th>
+                  <th>View</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+                <tr>
+                  <td>{{transaction.category}}</td>
+                  <td>{{transaction.date}}</td>
+                  <td>{{transaction.amount}}</td>
+                  <td>{{transaction.description}}</td>
+                  <td><a href="{% url 'transactions_detail' transaction.pk %}" class="btn btn-secondary btn-sm">View </a></td>
+                  <td><a href="{% url 'transactions_update' transaction.pk %}" class="btn btn-secondary btn-sm">Edit</a></td>
+                  <td><a href="{% url 'transactions_delete' transaction.pk %}" class="btn btn-secondary btn-sm">Delete</a></td>
+              </table>
+    
           {% empty %}
-        
       {% endfor %}
 {% endblock %}
