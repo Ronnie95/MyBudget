@@ -9,7 +9,7 @@
 
 </html><h1 class="title">Transactions</h1>
   <div class="message-header"></div>
-  <a href="{% url 'transactions_create' %}" class="btn btn-secondary btn-lg">New Transaction</a>
+  <a href="{% url 'transactions_create' %}" class="ajak btn btn-secondary btn-lg">New Transaction</a>
 
       <div class="con">
               <table>
@@ -23,11 +23,10 @@
                   <th>Delete</th>
                 </tr>
                 {% for transaction in Transactions %}
-
                 <tr>
                   <td>{{transaction.category}}</td>
                   <td>{{transaction.date}}</td>
-                  <td>{{transaction.amount}}</td>
+                  <td>${{transaction.amount}}</td>
                   <td>{{transaction.description}}</td>
                   <td><a href="{% url 'transactions_detail' transaction.pk %}" class="btn btn-secondary btn-sm">View </a></td>
                   <td><a href="{% url 'transactions_update' transaction.pk %}" class="btn btn-secondary btn-sm">Edit</a></td>
