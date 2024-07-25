@@ -1,0 +1,21 @@
+h1 {
+    color: red;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center
+}
+
+h3 {
+    color: red;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+.con {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 30px;
+    padding: 70px 0;
+    justify-content: center; /* centers horizontally */
+    align-items: center; /* centers vertically */
+
+}
