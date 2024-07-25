@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'delete.css' %}">
+
+<div class="mb-3 container">
     <h1>Delete Goal</h1>
-    <p>Are you sure you want to delete the goal "{{ reminder.name }}"?</p>
+    <p>Are you sure you want to delete the reminder?</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="button is-danger">Confirm</button>
-        <a href="{% url 'reminders' %}" class="button is-secondary">Cancel</a>
+        <button type="submit" class="btn btn-danger">Confirm</button>
     </form>
+</div>
+
 {% endblock %}
