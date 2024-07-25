@@ -228,9 +228,9 @@ class IncomeUpdate(UpdateView):
     model = Income
     fields = ['amount','description']
     template_name = "income_update.html"
-    success_url = "/incomes/"
+    success_url = "/income/"
 
 class IncomeDelete(DeleteView):
     model = Income
     template_name = "income_delete.html"
-    success_url = "/incomes/"
+    success_url = "/income/"
