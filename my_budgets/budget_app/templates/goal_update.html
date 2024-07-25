@@ -1,22 +1,15 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load bootstrap5 %}
 {% load static %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-<link rel="stylesheet" href="{% static 'budget.css' %}">
+<link rel="stylesheet" href="{% static 'budgets.css' %}">
 
 <div class="mb-3">
 
-  <h1>Create Transaction</h1>
-  <br/><br/>
-  <form method="post">
-
-  <div class="mb-3">
-      {% csrf_token %}
-      {{ form.as_p }} 
-
-      <button type="submit" class="btn btn-primary">Create</button>
-
-  </div>
-  {% endblock %}
+  <div class="mb-3 container">
+    <br/><br/>
+    <form action="" method="post">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
